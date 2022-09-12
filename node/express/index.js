@@ -35,3 +35,10 @@ app.get("/welcome", (req, res)=>{
 app.listen(8888, ()=>{
     console.log("Listening to port:" + 8888)
 })
+
+/*
+GET -> Retrive the data from the backend using given endpoint
+POST -> Add the new data to the backend using given endpoint
+PUT -> Update the previously avilable data in the backend using given endpoint
+DELETE -> Delete the previously avilable data in the backend using given endpoint
+*/
