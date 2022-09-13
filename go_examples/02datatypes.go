@@ -23,4 +23,21 @@ func main() {
 	fmt.Println("City name:", cityName)
 	fmt.Println("Check:", check)
 	fmt.Println("Lifeline:", lifeline)
+	fmt.Println("My score is ", score, ". I live in ", cityName)
+
+	//use format specifier
+	//add backspace \n to adda new line
+	fmt.Printf("My score is %v. I live in %v. \n", score, cityName)
+	fmt.Printf("My lifeline is %v. \n", lifeline)
+
+	//%T format specifier -> get datatype of variable.
+	fmt.Printf("Datatype of lifeline variable is %V \n", lifeline)
+
+	//auto type inference
+	//let go detect the datatype of the variable automatically
+	// use  :=
+	autoScore := "PASS"
+	fmt.Printf("My autoScore is %v. \n", autoScore)
+	fmt.Printf("Datatype of autoScore variable is %V \n", autoScore)
+
 }
