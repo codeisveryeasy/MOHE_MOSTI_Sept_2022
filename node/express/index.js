@@ -1,8 +1,18 @@
 //import express
 let express = require("express")
+let mongoose = require('mongoose')
+let catalog = require('./catalog')
 
 //create express app
 let app = express()
+
+//connect with mongodb
+mongoose.connect("mongodb://localhost:27017/ecommerce")
+let db = mongoose.connection
+
+db.once("open", ()=>{
+    console.log("MongoDB is connected!!!!")
+})
 
 //define first end point for get request.
 //request method is of type GET
@@ -34,6 +44,18 @@ app.get("/welcome", (req, res)=>{
 
 app.listen(8888, ()=>{
     console.log("Listening to port:" + 8888)
+})
+
+
+//get all catalog names from mongodb
+app.get("/catalog/all", (req, res)=>{
+    catalog.find({}, (error, data)=>{
+        if(error){
+            res.send(error)
+        }else{
+            res.send(data)
+        }
+    })
 })
 
 /*
