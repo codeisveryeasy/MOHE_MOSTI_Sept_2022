@@ -5,6 +5,7 @@ let catalog = require('./catalog')
 
 //create express app
 let app = express()
+app.use(express.json())
 
 //connect with mongodb
 mongoose.connect("mongodb://localhost:27017/ecommerce")
@@ -56,6 +57,25 @@ app.get("/catalog/all", (req, res)=>{
             res.send(data)
         }
     })
+})
+
+//add a new document to mongodb
+app.post("/catalog/add", (req, res)=>{
+    //console.log(req)
+    console.log(req.body)
+    let nameReceived =  req.body.name
+    let countReceived = req.body.productCount
+    let cat = new catalog()
+    cat.name = nameReceived
+    cat.productCount = countReceived
+    cat.save((err, data)=>{
+        if(err){
+            res.send(err)
+        }else{
+            res.send(data)
+        }
+    })
+
 })
 
 /*
