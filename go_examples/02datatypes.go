@@ -30,7 +30,7 @@ func main() {
 	fmt.Printf("My score is %v. I live in %v. \n", score, cityName)
 	fmt.Printf("My lifeline is %v. \n", lifeline)
 
-	//%T format specifier -> get datatype of variable.
+	//%V format specifier -> get datatype of variable.
 	fmt.Printf("Datatype of lifeline variable is %V \n", lifeline)
 
 	//auto type inference
