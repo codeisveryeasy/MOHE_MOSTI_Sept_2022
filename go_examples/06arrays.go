@@ -21,4 +21,9 @@ func main() {
 	for _, value := range scores {
 		fmt.Println("Value: ", value)
 	}
+
+	//use for range to iterate on arrays
+	for index, _ := range scores {
+		fmt.Println("Index: ", index)
+	}
 }
