@@ -29,10 +29,24 @@ function ConsumeCatalogAPI() {
             })
     },[])
 
+    const renderCatalogItems = ()=>{
+        return catalogItems.map((item)=>{
+            //console.log("in map iteration")
+            //console.log(item)
+            console.log(item.name)
+            
+            return (
+                <li key={item._id}>
+                    {item.name} @ {item.productCount}
+                </li>
+            )
+        })
+    }
 
     return ( 
         <div>
             <h1>I will consume catalog API</h1>
+            {renderCatalogItems()}
         </div>
      );
    
