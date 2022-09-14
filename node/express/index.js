@@ -2,10 +2,12 @@
 let express = require("express")
 let mongoose = require('mongoose')
 let catalog = require('./catalog')
+let cors = require('cors')
 
 //create express app
 let app = express()
 app.use(express.json())
+app.use(cors())
 
 //connect with mongodb
 mongoose.connect("mongodb://localhost:27017/ecommerce")
