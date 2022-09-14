@@ -62,6 +62,16 @@ function ConsumeCatalogAPI() {
             "productCount":productCount
         }
         console.log(newCategory)
+        //call POST api (created/exposed from express) to add newCategory to MongoDB
+        axios.post("http://localhost:8888/catalog/add", newCategory)
+            .then((response)=>{
+                //console.log(response)
+                console.log(response.data)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+
     }
 
     return ( 
