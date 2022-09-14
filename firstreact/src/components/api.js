@@ -13,6 +13,10 @@ function ConsumeCatalogAPI() {
 
 
     useEffect(()=>{
+        getCatalogList()
+    },[])
+
+    const getCatalogList = ()=>{
         //use axios here to call API
         axios.get("http://localhost:8888/catalog/all")
         //if response comes back -> .then() will be executed
@@ -29,7 +33,7 @@ function ConsumeCatalogAPI() {
             .catch((error)=>{
                 console.log(error)
             })
-    },[])
+    }
 
     const renderCatalogItems = ()=>{
         return catalogItems.map((item)=>{
@@ -67,6 +71,7 @@ function ConsumeCatalogAPI() {
             .then((response)=>{
                 //console.log(response)
                 console.log(response.data)
+                getCatalogList()
             })
             .catch((error)=>{
                 console.log(error)
