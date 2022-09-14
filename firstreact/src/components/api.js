@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 function ConsumeCatalogAPI() {
 
     const [catalogItems, updateCatalogItems] = useState([])
+    const [name, updateName] = useState("")
+    const [productCount, updateProductCount] = useState(0)
 
 
     useEffect(()=>{
@@ -31,8 +33,8 @@ function ConsumeCatalogAPI() {
 
     const renderCatalogItems = ()=>{
         return catalogItems.map((item)=>{
-            //console.log("in map iteration")
-            //console.log(item)
+            console.log("in map iteration")
+            console.log(item)
             console.log(item.name)
             
             return (
@@ -43,10 +45,38 @@ function ConsumeCatalogAPI() {
         })
     }
 
+    const captureName =(event)=>{
+        console.log(event)
+        console.log(event.target.value)
+        updateName(event.target.value)
+    }
+
+    const captureCount = (event)=>{
+        console.log(event.target.value)
+        updateProductCount(event.target.value)
+    }
+
+    const addNewCategory = ()=>{
+        let newCategory = {
+            "name": name,
+            "productCount":productCount
+        }
+        console.log(newCategory)
+    }
+
     return ( 
         <div>
             <h1>I will consume catalog API</h1>
             {renderCatalogItems()}
+            <br />
+            <hr />
+            <div>
+                Category name: <input type="text" onChange={captureName} />
+                <br />
+                Product Count: <input type="number" onChange={captureCount}/>
+                <br />
+                <button onClick={addNewCategory}>Add</button>
+            </div>
         </div>
      );
    
