@@ -1,4 +1,5 @@
 import React from 'react'
+import ConsumeCatalogAPI from './api'
 import Message from './message'
 
 function Welcome() {
@@ -40,6 +41,9 @@ function Welcome() {
                 <Message msg="Hello from IIS">iii</Message>
                 <Message msg="Learn to live on Mars!">iv</Message>
                 <Message msg="Learn to live on diet pill">v</Message>
+            </div>
+            <div>
+                <ConsumeCatalogAPI></ConsumeCatalogAPI>
             </div>
         </div>
     );
